@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="SHORTCUT ICON" href="logo.png" type="image/x-icon">
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -150,8 +151,8 @@
                 <div class="md:w-1/3">
                     <div class="relative w-80 h-80 sm:w-80 sm:h-80 mx-auto">
                         <div class="absolute inset-0 bg-violet-500 rounded-full blur-2xl opacity-50"></div>
-                        <img src="my_photo2.jpg" alt="HARSHAD JETHVA"
-                            class="relative w-full h-full rounded-full object-cover border-4 border-violet-500/50 shadow-2xl">
+                        <img id="profileImage" src="my_photo1.jpg" alt="HARSHAD JETHVA"
+                            class="relative w-full h-full rounded-full object-cover border-4 border-violet-500/50 shadow-2xl transition-opacity duration-700">
                     </div>
                 </div>
             </div>
@@ -428,6 +429,8 @@
     </div>
 
     <script>
+
+
         // Initialize Lucide icons
         lucide.createIcons();
 
@@ -714,6 +717,33 @@
         `;
         document.head.appendChild(styleSheet);
 
+    </script>
+    <script>
+        // List of images
+        const images = [
+            "my_photo1.jpg",
+            "my_photo2.jpg",
+            "my_photo3.jpg",
+            "my_photo4.jpg",
+            "my_photo5.jpg"
+        ];
+
+        let index = 0;
+        const imgElement = document.getElementById("profileImage");
+
+        setInterval(() => {
+            // Fade out
+            imgElement.style.opacity = 0;
+
+            setTimeout(() => {
+                // Change image
+                index = (index + 1) % images.length;
+                imgElement.src = images[index];
+
+                // Fade in
+                imgElement.style.opacity = 1;
+            }, 700); // matches transition duration
+        }, 5000); // change every 5 seconds
     </script>
 </body>
 
