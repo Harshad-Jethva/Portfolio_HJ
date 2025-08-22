@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARSHAD JETHVA - Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            background: radial-gradient(ellipse at top, #1b2735 0%, #090a0f 100%);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 8px rgba(167, 139, 250, 0.6), 0 0 20px rgba(167, 139, 250, 0.4);
+        }
+
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .modal-backdrop {
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+    </style>
+</head>
+
+<body class="bg-[#090a0f] text-gray-300">
+
+    <!-- Header -->
+    <header id="header"
+        class="bg-black/30 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-white"><img src="logo.png" alt="" class="w-auto h-10"></a>
+                    
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#projects"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#vision"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Vision</a>
+                        <a href="#contact"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <i data-lucide="menu" class="block h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#projects"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#vision"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Vision</a>
+                <a href="#contact"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero-bg min-h-screen flex items-center justify-center p-4">
+            <div
+                class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-16 text-center md:text-left">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                        Hi, I'm HARSHAD JETHVA
+                    </h1>
+                    <div class="mt-4 text-2xl sm:text-3xl lg:text-4xl font-semibold text-violet-400 h-12">
+                        <span id="typing-text"></span><span class="animate-ping">|</span>
+                    </div>
+                    <p class="mt-6 text-lg text-gray-400 max-w-xl mx-auto md:mx-0">
+                        A passionate developer crafting beautiful and functional web experiences. Turning complex
+                        problems into elegant solutions.
+                    </p>
+                    <div class="mt-8 flex justify-center md:justify-start gap-4">
+                        <a href="#contact"
+                            class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            Get In Touch
+                        </a>
+                        <a href="#projects"
+                            class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            View My Work
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <div class="relative w-80 h-80 sm:w-80 sm:h-80 mx-auto">
+                        <div class="absolute inset-0 bg-violet-500 rounded-full blur-2xl opacity-50"></div>
+                        <img src="my_photo2.jpg" alt="HARSHAD JETHVA"
+                            class="relative w-full h-full rounded-full object-cover border-4 border-violet-500/50 shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 sm:py-32 section-reveal">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-semibold text-violet-400 mb-4">A Journey of Code and Creativity</h3>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Hello! I'm HARSHAD, a Vibe coder with a knack for building things for the web. My
+                            journey into tech started with a simple "Hello, World!" and has since evolved into a passion
+                            for creating dynamic, user-centric applications. I thrive on challenges and am constantly
+                            learning to stay at the forefront of technology.
+                        </p>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            With over 2+ years of experience, I've had the privilege of working on diverse projects,
+                            from
+                            sleek marketing websites to complex enterprise-level applications. My focus is on writing
+                            clean, efficient, and scalable code while keeping a keen eye on design and user experience.
+                        </p>
+                        <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+                            <h4 class="text-xl font-semibold text-white mb-4">Personal Details</h4>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300">
+                                <li><strong class="font-medium text-violet-300">Experience:</strong> 2.5+ Years</li>
+                                <li><strong class="font-medium text-violet-300">Nationality:</strong> India</li>
+                                <li><strong class="font-medium text-violet-300">Languages:</strong> English, Gujarati,
+                                    Hindi
+                                </li>
+                                <li><strong class="font-medium text-violet-300">Location:</strong> Amroli, Surat
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+                            <h4 class="text-xl font-semibold text-white mb-4">Experience Highlights</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <i data-lucide="briefcase" class="w-5 h-5 text-violet-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold">Store Manager</h5>
+                                        <p class="text-sm text-gray-400">Gopani Books (2023 - Present)</p>
+                                    </div>
+                                </li>
+                                <!-- <li class="flex items-start">
+                                    <i data-lucide="briefcase" class="w-5 h-5 text-violet-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold">Web Developer</h5>
+                                        <p class="text-sm text-gray-400">Creative Agency (2018 - 2020)</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-lucide="award" class="w-5 h-5 text-violet-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold">B.Sc. in Computer Science</h5>
+                                        <p class="text-sm text-gray-400">University of Technology (2014 - 2018)</p>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 sm:py-32 bg-gray-900/50 section-reveal">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">My Technical Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Frontend -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Frontend</h3>
+                        <div class="skill-items-wrapper">
+                            <span class="skill-item">HTML5</span>
+                            <span class="skill-item">CSS3</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">React.js</span>
+                            <!-- <span class="skill-item">Next.js</span> -->
+                            <!-- <span class="skill-item">Vue.js</span> -->
+                            <span class="skill-item"> BasicTailwind CSS</span>
+                            <!-- <span class="skill-item">SASS/SCSS</span> -->
+                        </div>
+                    </div>
+                    <!-- Backend -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Backend</h3>
+                        <div class="skill-items-wrapper">
+                            <!-- <span class="skill-item">Node.js</span> -->
+                            <!-- <span class="skill-item">Express.js</span> -->
+                            <span class="skill-item">Basic Python</span>
+                            <span class="skill-item">Basic PHP</span>
+                            <!-- <span class="skill-item">REST APIs</span> -->
+                            <!-- <span class="skill-item">GraphQL</span> -->
+                        </div>
+                    </div>
+                    <!-- Database -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Database</h3>
+                        <div class="skill-items-wrapper">
+                            <span class="skill-item">MongoDB</span>
+                            <span class="skill-item">SQL</span>
+                            <span class="skill-item">MySQL</span>
+                            <!-- <span class="skill-item">Firebase</span> -->
+                            <!-- <span class="skill-item">Redis</span> -->
+                        </div>
+                    </div>
+                    <!-- Tools & DevOps -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Tools & DevOps</h3>
+                        <div class="skill-items-wrapper">
+                            <span class="skill-item">GitHub</span>
+                            <!-- <span class="skill-item">Docker</span> -->
+                            <span class="skill-item">Canva</span>
+                            <span class="skill-item">Figma</span>
+                            <span class="skill-item">Vercel</span>
+                            <span class="skill-item">Gemini</span>
+                            <span class="skill-item">Netlify</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 sm:py-32 section-reveal">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Featured Projects</h2>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projects will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Goals Section -->
+        <section id="vision" class="py-20 sm:py-32 bg-gray-900/50 section-reveal">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-12">Vision & Goals</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-violet-400 mb-4">My Professional Vision</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            My vision is to leverage technology to build intuitive and impactful digital solutions that
+                            solve real-world problems. I am passionate about creating software that is not only
+                            technically robust but also provides a seamless and enjoyable user experience. I aim to
+                            contribute to projects that push the boundaries of innovation and make a positive
+                            difference.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i data-lucide="rocket"
+                                    class="w-5 h-5 text-violet-400 mt-1 mr-3 flex-shrink-0"></i><span>Continuously learn
+                                    and adapt to new technologies and best practices.</span></li>
+                            <li class="flex items-start"><i data-lucide="users"
+                                    class="w-5 h-5 text-violet-400 mt-1 mr-3 flex-shrink-0"></i><span>Collaborate with
+                                    talented teams to build amazing products.</span></li>
+                            <li class="flex items-start"><i data-lucide="lightbulb"
+                                    class="w-5 h-5 text-violet-400 mt-1 mr-3 flex-shrink-0"></i><span>Mentor aspiring
+                                    developers and contribute to the open-source community.</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+                        <h3 class="text-xl font-semibold text-white mb-4">Key Achievements</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i data-lucide="award"
+                                    class="w-5 h-5 text-violet-400 mt-1 mr-3 flex-shrink-0"></i><span>Led the frontend
+                                    development of a project that increased user engagement by 30%.</span></li>
+                            <li class="flex items-start"><i data-lucide="zap"
+                                    class="w-5 h-5 text-violet-400 mt-1 mr-3 flex-shrink-0"></i><span>Optimized
+                                    application performance, reducing load times by 50%.</span></li>
+                            <li class="flex items-start"><i data-lucide="code"
+                                    class="w-5 h-5 text-violet-400 mt-1 mr-3 flex-shrink-0"></i><span>Contributed to a
+                                    popular open-source library with over 10k stars on GitHub.</span></li>
+                            <li class="flex items-start"><i data-lucide="speaker"
+                                    class="w-5 h-5 text-violet-400 mt-1 mr-3 flex-shrink-0"></i><span>Vibe coder at the
+                                    Regional Web Developers Conference 2026.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 sm:py-32 section-reveal">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Let's Connect</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-12">
+                    I'm currently open to new opportunities and collaborations. If you have a project in mind or just
+                    want to say hello, feel free to reach out via my socials or the contact form below.
+                </p>
+                <div class="flex justify-center items-center gap-6 sm:gap-8 mb-16">
+                    <a href="https://wa.me/9327128042" target="_blank" class="contact-link group">
+                        <i data-lucide="message-circle" class="w-8 h-8"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/harshad-jethva-470745312/" target="_blank"
+                        class="contact-link group">
+                        <i data-lucide="linkedin" class="w-8 h-8"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/Harshad-Jethva" target="_blank" class="contact-link group">
+                        <i data-lucide="github" class="w-8 h-8"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=harshadjethva2111@gmail.com"
+                        class="contact-link group">
+                        <i data-lucide="mail" class="w-8 h-8"></i>
+                        <span>Email</span>
+                    </a>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="max-w-3xl mx-auto text-left">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" name="name" id="name" class="form-input" required>
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" name="email" id="email" class="form-input" required>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" name="phone" id="phone" class="form-input">
+                            </div>
+                            <div>
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" name="address" id="address" class="form-input">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" rows="4" class="form-input" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 focus:ring-offset-gray-900">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 border-t border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 HARSHAD JETHVA. HJ INFOTECH All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" target="_blank"
+        class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110 z-40">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <div class="modal-backdrop fixed inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div id="modal-content"
+            class="modal-content bg-gray-800 rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative border border-gray-700 transform scale-95 opacity-0">
+            <!-- Content will be injected here -->
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80');
+            } else {
+                header.classList.remove('bg-black/80');
+            }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = mobileMenuButton.querySelector('i');
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.setAttribute('data-lucide', 'menu');
+            } else {
+                mobileMenuIcon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // --- Typing Animation ---
+        const typingText = document.getElementById('typing-text');
+        const roles = ["Frontend Developer", "Vibe Coder", "Tester", "Canva Master"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentRole = roles[roleIndex];
+            if (isDeleting) {
+                typingText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+
+            const typeSpeed = isDeleting ? 100 : 150;
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // --- Section Reveal on Scroll ---
+        const sections = document.querySelectorAll('.section-reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // --- Projects Data and Modal Logic ---
+        const projects = [
+            {
+                title: "Temple Management",
+                image: "temple.png",
+                description: "A full-featured temple management system built with the MERN stack. Includes event scheduling, member management, and donation tracking.",
+                tags: ["Html", "CSS", "Tailwind CSS", "MySQL", "PHP"],
+                github: "https://github.com/Harshad-Jethva/Satiaai-madh",
+                live: "https://jethvatemple.unaux.com"
+            },
+            {
+                title: "Scarface Infotech ",
+                image: "scrface.png",
+                description: "Empowering students with real-world tech experience through our comprehensive internship program..",
+                tags: ["Html", "CSS", "Tailwind CSS", "MySQL", "PHP"],
+                github: "https://github.com/Harshad-Jethva/Sutex-Infotech-2111",
+                live: "https://scarfaceinfotech.unaux.com"
+            },
+            {
+                title: "Aura Crop",
+                image: "auracrop.png",
+                description: "AuraCrop is a revolutionary AgriTech platform that uses AI and advanced sensors to detect crop distress, pests, and diseases before they become visible. Proactive farming starts here.",
+                tags: ["Html", "CSS", "Tailwind CSS", "JavaScript"],
+                github: "https://github.com/Harshad-Jethva/Aura-Crop",
+                live: "https://auracrop.iceiy.com"
+            },
+            // {
+            //     title: "Recipe Finder App",
+            //     image: "https://placehold.co/600x400/15803d/9ca3af?text=Recipe+App",
+            //     description: "An application that helps users discover new recipes based on ingredients they have. It features a powerful search, filtering options, and a clean interface to view recipe details and instructions.",
+            //     tags: ["Next.js", "TypeScript", "API"],
+            //     github: "#",
+            //     live: "#"
+            // },
+            // {
+            //     title: "Real-time Chat App",
+            //     image: "https://placehold.co/600x400/831843/9ca3af?text=Chat+App",
+            //     description: "A real-time chat application allowing users to join rooms and communicate instantly. Built with Node.js and Socket.io for a seamless, low-latency messaging experience.",
+            //     tags: ["Node.js", "Socket.io", "React"],
+            //     github: "#",
+            //     live: "#"
+            // }
+        ];
+
+        const projectsGrid = document.getElementById('projects-grid');
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalBackdrop = document.querySelector('.modal-backdrop');
+
+        function openModal(project) {
+            modalContent.innerHTML = `
+                <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-8 h-8"></i>
+                </button>
+                <img src="${project.image}" alt="${project.title}" class="w-full h-48 sm:h-64 object-cover rounded-t-lg">
+                <div class="p-6 sm:p-8">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">${project.title}</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${project.tags.map(tag => `<span class="bg-violet-600/50 text-violet-200 text-xs font-semibold px-2.5 py-1 rounded-full">${tag}</span>`).join('')}
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">${project.description}</p>
+                    <div class="flex items-center gap-4">
+                        <a href="${project.github}" target="_blank" class="modal-link">
+                            <i data-lucide="github" class="w-5 h-5 mr-2"></i> GitHub
+                        </a>
+                        <a href="${project.live}" target="_blank" class="modal-link">
+                            <i data-lucide="external-link" class="w-5 h-5 mr-2"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            `;
+            lucide.createIcons();
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                modalBackdrop.classList.add('bg-opacity-70');
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+
+            document.getElementById('close-modal').addEventListener('click', closeModal);
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modalContent.classList.add('scale-95', 'opacity-0');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalBackdrop.classList.remove('bg-opacity-70');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        modalBackdrop.addEventListener('click', closeModal);
+
+        projects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'bg-gray-800/50 rounded-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer border border-gray-700';
+            projectCard.innerHTML = `
+                <div class="relative">
+                    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-lg">View Details</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${project.tags.map(tag => `<span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            projectCard.addEventListener('click', () => openModal(project));
+            projectsGrid.appendChild(projectCard);
+        });
+
+        // Add custom CSS for various components for better reusability
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = `
+            .skill-category-card {
+                background-color: rgba(31, 41, 55, 0.5); /* bg-gray-800/50 */
+                padding: 1.5rem;
+                border-radius: 0.5rem;
+                border: 1px solid #374151; /* border-gray-700 */
+            }
+            .skill-category-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #a78bfa; /* text-violet-400 */
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            .skill-items-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+            }
+            .skill-item {
+                background-color: rgba(139, 92, 246, 0.2);
+                color: #c4b5fd;
+                padding: 8px 16px;
+                border-radius: 9999px;
+                font-weight: 500;
+                font-size: 0.875rem;
+                transition: all 0.2s ease-in-out;
+            }
+            .skill-item:hover {
+                background-color: rgba(139, 92, 246, 0.4);
+                transform: translateY(-2px);
+            }
+            .contact-link {
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                color: #d1d5db;
+                transition: color 0.3s, transform 0.3s;
+            }
+            .contact-link:hover {
+                color: #a78bfa;
+                transform: translateY(-4px);
+            }
+            .modal-link {
+                display: inline-flex;
+                align-items: center;
+                padding: 10px 20px;
+                background-color: #4f46e5;
+                color: white;
+                border-radius: 8px;
+                font-weight: 600;
+                transition: background-color 0.3s;
+            }
+            .modal-link:hover {
+                background-color: #4338ca;
+            }
+            .form-label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: #d1d5db; /* text-gray-300 */
+            }
+            .form-input {
+                display: block;
+                width: 100%;
+                background-color: #1f2937; /* bg-gray-800 */
+                border: 1px solid #4b5563; /* border-gray-600 */
+                border-radius: 0.5rem;
+                padding: 0.75rem 1rem;
+                color: #f3f4f6; /* text-gray-100 */
+                transition: border-color 0.3s, box-shadow 0.3s;
+            }
+            .form-input:focus {
+                outline: none;
+                border-color: #8b5cf6; /* focus:border-violet-500 */
+                box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5);
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+    </script>
+</body>
+
+</html>
