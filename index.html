@@ -420,6 +420,25 @@
         </div>
     </div>
 
+<audio id="bg-music" autoplay loop hidden>
+    <source src="./background.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Some browsers block autoplay with sound, so we force play on load
+    window.addEventListener("load", function () {
+      const music = document.getElementById("bg-music");
+      music.volume = 0.1; // set volume (0.0 - 1.0)
+      music.play().catch(() => {
+        console.log("Autoplay blocked. Waiting for user interaction...");
+        document.body.addEventListener("click", () => {
+          music.play();
+        }, { once: true });
+      });
+    });
+  </script>
+
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
@@ -545,30 +564,46 @@
                 year: 2025,
                 where: "C B Patel college of computer application",
                 images: [
-                    "https://placehold.co/600x400/8b5cf6/ffffff?text=Event+Photo+1",
-                    "https://placehold.co/600x400/8b5cf6/ffffff?text=Certificate",
-                    "https://placehold.co/600x400/8b5cf6/ffffff?text=Team+Photo"
+                   "cbpwin3.jpg","cbpcerti.jpg","cbpwintrophy.jpg","cbpwin1.jpg","cbpwin2.jpg","cbpwin4.jpg" 
                 ],
                 message: "Achieved First Rank in the Dev Race Relay 2025, a highly competitive programming event hosted by the C B Patel College of Computer Application. Competing as a dynamic two-person team alongside my partner, Prince Goti, we successfully navigated a challenging and unique competition format.<br><br>The \"Dev Race Relay\" was designed to test more than just individual coding skills. It was a true relay where each team member had to sequentially take over, understand, and build upon the code written by the previous teammate. This format demanded exceptional collaboration, rapid code comprehension, and adaptability under strict time constraints. Our task was to collaboratively develop a cohesive and functional program in C and C++, seamlessly handing off the evolving codebase at critical junctures.<br><br>Our victory in this event is a testament to our ability to:<br><br>    Work Synergistically: Effectively communicating and strategizing to ensure smooth transitions and a unified coding approach.<br>   <br> Adapt Quickly: Instantly interpreting a teammate's logic and continuing the development flow without delay.        <br>  <br>  Solve Problems Under Pressure: Debugging and implementing complex logic in a fast - paced, competitive environment.<br> <br>   Demonstrate Technical Proficiency: Showcasing a strong command of C and C++ fundamentals and advanced concepts.<br>  <br>  Clinching the top position in this competition was a proud moment, highlighting our combined strength in both collaborative software development and technical expertise.<br>"
             },
         {
-            name: "Code Competition Finalist",
-                year: 2023,
-                    where: "Online National Event",
+            name: "Design A Jung ",
+                year: 2025,
+                    where: "Shree Uttar Gujarat College of computer application",
                         images: [
-                            "https://placehold.co/600x400/10b981/ffffff?text=Finalist+Badge",
-                            "https://placehold.co/600x400/10b981/ffffff?text=Leaderboard"
+                           "ugcwin2.jpg", "ugccerti.jpg", "ugctrophy1.jpg", "ugctrophy2.jpg", "ugcwin1.jpg"
                         ],
-                            message: "Recognized as a top finalist among thousands of participants in a national coding competition focused on algorithmic problem-solving and data structures."
+                            message: "Achieved First Rank in a web designing competition at the Uttar Gujarat College of Computer Application, competing alongside my sister, Nidhi Jikadara. We won by successfully developing the front-end for a unique e-commerce website dedicated to selling cultural goods and artifacts.<br><br>This project required the cohesive integration of multiple modern front-end technologies to create a visually appealing, responsive, and intuitive user interface. Our winning solution was meticulously crafted using a robust combination of HTML, CSS, and JavaScript, while leveraging both Tailwind CSS and Bootstrap to demonstrate versatility in UI framework utilization.<br><br>Our victory in the final moments of the competition underscored our ability to perform under pressure and deliver exceptional results on a tight deadline. This achievement highlights a range of skills crucial for professional web development:<br><br> Frontend Development & Design: Expertly translating a concept into a functional and aesthetically pleasing website.<br><br>Technical Proficiency: Demonstrated mastery of essential web technologies (HTML, CSS, JavaScript) and proficiency in leading frameworks (Tailwind, Bootstrap).<br><br> UI/UX Principles: Designing a user-friendly and visually engaging interface optimized for an e-commerce platform.<br><br> Collaborative Development: Working effectively as a team to seamlessly integrate our contributions and deliver a high-quality product.<br><br> This win is a testament to our technical acumen, creative design skills, and the synergy of our teamwork."
         },
         {
-            name: "Open Source Contributor",
-                year: 2023,
-                    where: "GitHub",
+            name: "Excellent student in Sem 3",
+                year: 2024,
+                    where: "Sutex College of Computer Application And Science",
                         images: [
-                            "https://placehold.co/600x400/3b82f6/ffffff?text=GitHub+PR"
+                           "sem3certi.jpg", "sem3trophy.jpg"
                         ],
-                            message: "Awarded for significant contributions to a popular open-source JavaScript library, including bug fixes, feature implementation, and documentation improvements."
+                            message: "Secured the 8th rank among all students in the S.Y.B.C.A. (Second Year Bachelor of Computer Applications) Semester 3 External Examination at Sutex College of Computer Application and Science. This accomplishment demonstrates a strong command of the core curriculum and reflects a high level of academic performance.<br><br> External examinations are a rigorous test of a student's comprehensive knowledge, as they are independently evaluated and cover a wide range of subjects studied throughout the semester. This achievement showcases my dedication and disciplined approach to my studies. <br><br>The top rank in this competitive examination is a direct result of my: <br><br>Strong Subject Knowledge: A deep and thorough understanding of the B.C.A. curriculum. <br><br>Academic Excellence: Consistent performance that places me in the top tier of my peer group. <br><br>Analytical & Problem-Solving Skills: The ability to effectively apply theoretical knowledge to complex problems. <br><br>Resilience & Hard Work: The commitment required to excel in a demanding academic environment. <br><br>This achievement stands as a significant milestone in my academic journey, underscoring my proficiency and commitment to excellence in computer applications."
+        },
+
+        {
+            name: "Excellent student in Sem 4",
+                year: 2025,
+                    where: "Sutex College of Computer Application And Science",
+                        images: [
+                           "sem4temp.jpg", "sem4trophy.jpg"
+                        ],
+                            message: "Secured the 4th rank out of all students in the S.Y.B.C.A. (Second Year Bachelor of Computer Applications) Semester 4 External Examination at Sutex College of Computer Application and Science. This accomplishment places me in the top tier of the graduating class, reflecting a sustained commitment to academic excellence throughout my second year of study. <br><br>The Semester 4 external examination serves as a comprehensive assessment of advanced topics in the computer applications curriculum. Earning a position in the top five is a clear indicator of my profound understanding of complex subjects and my ability to recall and apply knowledge under pressure. <br><br>This achievement demonstrates: <br><br>Exceptional Academic Performance: Consistent high performance across all subjects in the semester. <br><br>Comprehensive Subject Mastery: A thorough grasp of advanced concepts in the B.C.A. program. <br><br>Disciplined Study Habits: The hard work and dedication required to excel in a highly competitive academic environment. <br><br>Analytical & Critical Thinking: The ability to analyze problems and formulate effective, correct solutions on a large-scale examination. <br><br>This result is a significant highlight of my academic journey and a strong foundation for my future in the field of computer applications."
+        },
+        {
+            name: "Winner of Inter College Competition",
+                year: 2025,
+                    where: "Sutex College of Computer Application And Science",
+                        images: [
+                            "winintclgcompaward.jpg"
+                        ],
+                            message: "Secured First Place in a highly competitive Inter-College Web Design Competition during my second year of study, representing Sutex College of Computer Application and Science. This victory was a significant achievement, proving my technical and creative skills against a wide field of participants from various colleges. <br><br>The competition provided a challenging platform to design and execute a complete web project under a strict time limit. This success is a testament to my ability to not only create a visually compelling and user-friendly interface but also to deliver a high-quality, functional solution in a high-pressure environment. <br><br>This accomplishment highlights my expertise in: <br><br>Competitive Performance: Excelling in a competitive academic setting and delivering top-tier work under pressure. <br><br>Creative Problem-Solving: Conceptualizing and building a unique web solution that stood out among diverse entries. <br><br>Frontend Development: Demonstrating strong proficiency in the core principles of web design and development. <br><br>Project Execution: The ability to take a project from an initial idea to a polished final product, showcasing robust project management skills. <br><br>Winning this inter-college event provided invaluable experience and solidified my confidence in my skills, reinforcing my passion for a career in web design and development. <br><br>Amroli, Surat."
         }
         ];
 
