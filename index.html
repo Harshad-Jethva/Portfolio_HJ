@@ -11,24 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="SHORTCUT ICON" href="logo.png" type="image/x-icon">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <audio id="bg-music" autoplay loop hidden>
-    <source src="./background.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
 
-  <script>
-    // Some browsers block autoplay with sound, so we force play on load
-    window.addEventListener("load", function () {
-      const music = document.getElementById("bg-music");
-      music.volume = 0.1; // set volume (0.0 - 1.0)
-      music.play().catch(() => {
-        console.log("Autoplay blocked. Waiting for user interaction...");
-        document.body.addEventListener("click", () => {
-          music.play();
-        }, { once: true });
-      });
-    });
-  </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -59,6 +42,10 @@
 
         .modal-content {
             transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #form-submission-message {
+            transition: opacity 0.5s ease-in-out;
         }
 
         /* Custom scrollbar */
@@ -375,9 +362,9 @@
                     </a>
                 </div>
 
-                <!-- Contact Form -->
+                <!-- Contact Form Container -->
                 <div class="max-w-3xl mx-auto text-left">
-                    <form action="#" method="POST" class="space-y-6">
+                    <form id="contact-form" class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="form-label">Full Name</label>
@@ -409,6 +396,12 @@
                             </button>
                         </div>
                     </form>
+                    <div id="form-submission-message"
+                        class="hidden opacity-0 text-center p-8 bg-gray-800/50 border border-gray-700 rounded-lg">
+                        <h3 class="text-2xl font-bold font-semibold text-violet-400 mb-4">Thank You!</h3>
+                        <p class="text-gray-300">Your message has been sent successfully. I will get back to you
+                            shortly.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -436,8 +429,6 @@
             <!-- Content will be injected here -->
         </div>
     </div>
-
-
 
     <script>
         // Initialize Lucide icons
@@ -560,51 +551,32 @@
 
         const achievements = [
             {
-                name: "Dev Race Relay  ",
+                name: "Dev Race Relay",
                 year: 2025,
-                where: "C B Patel college of computer application",
+                where: "C B Patel College",
                 images: [
-                   "cbpwin3.jpg","cbpcerti.jpg","cbpwintrophy.jpg","cbpwin1.jpg","cbpwin2.jpg","cbpwin4.jpg" 
+                    "cbpwin3.jpg", "cbpcerti.jpg", "cbpwintrophy.jpg", "cbpwin1.jpg", "cbpwin2.jpg", "cbpwin4.jpg"
                 ],
-                message: "Achieved First Rank in the Dev Race Relay 2025, a highly competitive programming event hosted by the C B Patel College of Computer Application. Competing as a dynamic two-person team alongside my partner, Prince Goti, we successfully navigated a challenging and unique competition format.<br><br>The \"Dev Race Relay\" was designed to test more than just individual coding skills. It was a true relay where each team member had to sequentially take over, understand, and build upon the code written by the previous teammate. This format demanded exceptional collaboration, rapid code comprehension, and adaptability under strict time constraints. Our task was to collaboratively develop a cohesive and functional program in C and C++, seamlessly handing off the evolving codebase at critical junctures.<br><br>Our victory in this event is a testament to our ability to:<br><br>    Work Synergistically: Effectively communicating and strategizing to ensure smooth transitions and a unified coding approach.<br>   <br> Adapt Quickly: Instantly interpreting a teammate's logic and continuing the development flow without delay.        <br>  <br>  Solve Problems Under Pressure: Debugging and implementing complex logic in a fast - paced, competitive environment.<br> <br>   Demonstrate Technical Proficiency: Showcasing a strong command of C and C++ fundamentals and advanced concepts.<br>  <br>  Clinching the top position in this competition was a proud moment, highlighting our combined strength in both collaborative software development and technical expertise.<br>"
+                message: "Achieved First Rank in the Dev Race Relay 2025, a highly competitive programming event. Competing as a dynamic two-person team, we successfully navigated a challenging relay format, which demanded exceptional collaboration, rapid code comprehension, and adaptability under strict time constraints to develop a cohesive program in C and C++."
             },
-        {
-            name: "Design A Jung ",
+            {
+                name: "Design A Jung",
                 year: 2025,
-                    where: "Shree Uttar Gujarat College of computer application",
-                        images: [
-                           "ugcwin2.jpg", "ugccerti.jpg", "ugctrophy1.jpg", "ugctrophy2.jpg", "ugcwin1.jpg"
-                        ],
-                            message: "Achieved First Rank in a web designing competition at the Uttar Gujarat College of Computer Application, competing alongside my sister, Nidhi Jikadara. We won by successfully developing the front-end for a unique e-commerce website dedicated to selling cultural goods and artifacts.<br><br>This project required the cohesive integration of multiple modern front-end technologies to create a visually appealing, responsive, and intuitive user interface. Our winning solution was meticulously crafted using a robust combination of HTML, CSS, and JavaScript, while leveraging both Tailwind CSS and Bootstrap to demonstrate versatility in UI framework utilization.<br><br>Our victory in the final moments of the competition underscored our ability to perform under pressure and deliver exceptional results on a tight deadline. This achievement highlights a range of skills crucial for professional web development:<br><br> Frontend Development & Design: Expertly translating a concept into a functional and aesthetically pleasing website.<br><br>Technical Proficiency: Demonstrated mastery of essential web technologies (HTML, CSS, JavaScript) and proficiency in leading frameworks (Tailwind, Bootstrap).<br><br> UI/UX Principles: Designing a user-friendly and visually engaging interface optimized for an e-commerce platform.<br><br> Collaborative Development: Working effectively as a team to seamlessly integrate our contributions and deliver a high-quality product.<br><br> This win is a testament to our technical acumen, creative design skills, and the synergy of our teamwork."
-        },
-        {
-            name: "Excellent student in Sem 3",
+                where: "Uttar Gujarat College",
+                images: [
+                    "ugcwin2.jpg", "ugccerti.jpg", "ugctrophy1.jpg", "ugctrophy2.jpg", "ugcwin1.jpg"
+                ],
+                message: "Achieved First Rank in a web designing competition by developing the front-end for a unique e-commerce website dedicated to selling cultural goods. Our winning solution was crafted using HTML, CSS, JavaScript, and leveraging both Tailwind CSS and Bootstrap."
+            },
+            {
+                name: "Excellent Student in Sem 3",
                 year: 2024,
-                    where: "Sutex College of Computer Application And Science",
-                        images: [
-                           "sem3certi.jpg", "sem3trophy.jpg"
-                        ],
-                            message: "Secured the 8th rank among all students in the S.Y.B.C.A. (Second Year Bachelor of Computer Applications) Semester 3 External Examination at Sutex College of Computer Application and Science. This accomplishment demonstrates a strong command of the core curriculum and reflects a high level of academic performance.<br><br> External examinations are a rigorous test of a student's comprehensive knowledge, as they are independently evaluated and cover a wide range of subjects studied throughout the semester. This achievement showcases my dedication and disciplined approach to my studies. <br><br>The top rank in this competitive examination is a direct result of my: <br><br>Strong Subject Knowledge: A deep and thorough understanding of the B.C.A. curriculum. <br><br>Academic Excellence: Consistent performance that places me in the top tier of my peer group. <br><br>Analytical & Problem-Solving Skills: The ability to effectively apply theoretical knowledge to complex problems. <br><br>Resilience & Hard Work: The commitment required to excel in a demanding academic environment. <br><br>This achievement stands as a significant milestone in my academic journey, underscoring my proficiency and commitment to excellence in computer applications."
-        },
-
-        {
-            name: "Excellent student in Sem 4",
-                year: 2025,
-                    where: "Sutex College of Computer Application And Science",
-                        images: [
-                           "sem4temp.jpg", "sem4trophy.jpg"
-                        ],
-                            message: "Secured the 4th rank out of all students in the S.Y.B.C.A. (Second Year Bachelor of Computer Applications) Semester 4 External Examination at Sutex College of Computer Application and Science. This accomplishment places me in the top tier of the graduating class, reflecting a sustained commitment to academic excellence throughout my second year of study. <br><br>The Semester 4 external examination serves as a comprehensive assessment of advanced topics in the computer applications curriculum. Earning a position in the top five is a clear indicator of my profound understanding of complex subjects and my ability to recall and apply knowledge under pressure. <br><br>This achievement demonstrates: <br><br>Exceptional Academic Performance: Consistent high performance across all subjects in the semester. <br><br>Comprehensive Subject Mastery: A thorough grasp of advanced concepts in the B.C.A. program. <br><br>Disciplined Study Habits: The hard work and dedication required to excel in a highly competitive academic environment. <br><br>Analytical & Critical Thinking: The ability to analyze problems and formulate effective, correct solutions on a large-scale examination. <br><br>This result is a significant highlight of my academic journey and a strong foundation for my future in the field of computer applications."
-        },
-        {
-            name: "Winner of Inter College Competition",
-                year: 2025,
-                    where: "Sutex College of Computer Application And Science",
-                        images: [
-                            "winintclgcompaward.jpg"
-                        ],
-                            message: "Secured First Place in a highly competitive Inter-College Web Design Competition during my second year of study, representing Sutex College of Computer Application and Science. This victory was a significant achievement, proving my technical and creative skills against a wide field of participants from various colleges. <br><br>The competition provided a challenging platform to design and execute a complete web project under a strict time limit. This success is a testament to my ability to not only create a visually compelling and user-friendly interface but also to deliver a high-quality, functional solution in a high-pressure environment. <br><br>This accomplishment highlights my expertise in: <br><br>Competitive Performance: Excelling in a competitive academic setting and delivering top-tier work under pressure. <br><br>Creative Problem-Solving: Conceptualizing and building a unique web solution that stood out among diverse entries. <br><br>Frontend Development: Demonstrating strong proficiency in the core principles of web design and development. <br><br>Project Execution: The ability to take a project from an initial idea to a polished final product, showcasing robust project management skills. <br><br>Winning this inter-college event provided invaluable experience and solidified my confidence in my skills, reinforcing my passion for a career in web design and development. <br><br>Amroli, Surat."
-        }
+                where: "Sutex College",
+                images: [
+                    "sem3certi.jpg", "sem3trophy.jpg"
+                ],
+                message: "Secured the 8th rank among all students in the S.Y.B.C.A. Semester 3 External Examination, demonstrating a strong command of the core curriculum and reflecting a high level of academic performance."
+            }
         ];
 
         // --- Modal Logic ---
@@ -614,8 +586,7 @@
 
         function openDetailModal(data) {
             let contentHTML = '';
-            // Check if it's a project or an achievement
-            if (data.github) { // It's a project
+            if (data.github) { // Project
                 contentHTML = `
                     <img src="${data.image}" alt="${data.title}" class="w-full h-48 sm:h-64 object-cover rounded-t-lg">
                     <div class="p-6 sm:p-8">
@@ -632,183 +603,92 @@
                                 <i data-lucide="external-link" class="w-5 h-5 mr-2"></i> Live Demo
                             </a>
                         </div>
-                    </div>
-                `;
-            } else { // It's an achievement
+                    </div>`;
+            } else { // Achievement
                 contentHTML = `
                     <div class="p-6 sm:p-8">
                         <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">${data.name}</h3>
                         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-400 mb-4">
                             <span class="flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2"></i>${data.year}</span>
                             <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>${data.where}</span>
-                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                                ${data.images.map(img => `<img src="${img}" class="w-full h-auto rounded-lg object-cover">`).join('')}
-                            </div>
                         </div>
                         <p class="text-gray-300 leading-relaxed mb-6">${data.message}</p>
-                    </div>
-                `;
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            ${data.images.map(img => `<img src="${img}" class="w-full h-auto rounded-lg object-cover" alt="Achievement Photo">`).join('')}
+                        </div>
+                    </div>`;
             }
-
-            modalContent.innerHTML = `
-                <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10">
-                    <i data-lucide="x" class="w-8 h-8"></i>
-                </button>
-                ${contentHTML}
-            `;
-
+            modalContent.innerHTML = `<button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10"><i data-lucide="x" class="w-8 h-8"></i></button>${contentHTML}`;
             lucide.createIcons();
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             setTimeout(() => {
                 modalBackdrop.classList.add('bg-opacity-70');
                 modalContent.classList.remove('scale-95', 'opacity-0');
-                modalContent.classList.add('scale-100', 'opacity-100');
             }, 10);
-
             document.getElementById('close-modal').addEventListener('click', closeModal);
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             modalContent.classList.add('scale-95', 'opacity-0');
-            modalContent.classList.remove('scale-100', 'opacity-100');
-            modalBackdrop.classList.remove('bg-opacity-70');
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
                 document.body.style.overflow = 'auto';
             }, 300);
         }
-
         modalBackdrop.addEventListener('click', closeModal);
 
         // --- Dynamic Content Population ---
         const projectsGrid = document.getElementById('projects-grid');
         projects.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.className = 'bg-gray-800/50 rounded-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer border border-gray-700';
-            projectCard.innerHTML = `
-                <div class="relative">
-                    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-bold text-lg">View Details</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
-                    <div class="flex flex-wrap gap-2">
-                        ${project.tags.map(tag => `<span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded">${tag}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-            projectCard.addEventListener('click', () => openDetailModal(project));
-            projectsGrid.appendChild(projectCard);
+            const card = document.createElement('div');
+            card.className = 'bg-gray-800/50 rounded-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer border border-gray-700';
+            card.innerHTML = `<div class="relative"><img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover"><div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white font-bold text-lg">View Details</span></div></div><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">${project.title}</h3><div class="flex flex-wrap gap-2">${project.tags.map(tag => `<span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded">${tag}</span>`).join('')}</div></div>`;
+            card.addEventListener('click', () => openDetailModal(project));
+            projectsGrid.appendChild(card);
         });
 
         const achievementsGrid = document.getElementById('achievements-grid');
         achievements.forEach(achievement => {
-            const achievementCard = document.createElement('div');
-            achievementCard.className = 'bg-gray-800/50 rounded-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer border border-gray-700';
-            achievementCard.innerHTML = `
-                <div class="relative">
-                    <img src="${achievement.images[0]}" alt="${achievement.name}" class="w-full h-48 object-cover">
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-bold text-lg">View Details</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-1">${achievement.name}</h3>
-                    <p class="text-sm text-violet-300">${achievement.where} - ${achievement.year}</p>
-                </div>
-            `;
-            achievementCard.addEventListener('click', () => openDetailModal(achievement));
-            achievementsGrid.appendChild(achievementCard);
+            const card = document.createElement('div');
+            card.className = 'bg-gray-800/50 rounded-lg overflow-hidden group transform transition-transform duration-300 hover:-translate-y-2 cursor-pointer border border-gray-700';
+            card.innerHTML = `<div class="relative"><img src="${achievement.images[0]}" alt="${achievement.name}" class="w-full h-48 object-cover"><div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span class="text-white font-bold text-lg">View Details</span></div></div><div class="p-6"><h3 class="text-xl font-bold text-white mb-1">${achievement.name}</h3><p class="text-sm text-violet-300">${achievement.where} - ${achievement.year}</p></div>`;
+            card.addEventListener('click', () => openDetailModal(achievement));
+            achievementsGrid.appendChild(card);
         });
 
-        // Add custom CSS for various components for better reusability
+        // --- Form Submission Logic ---
+        const contactForm = document.getElementById('contact-form');
+        const submissionMessage = document.getElementById('form-submission-message');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to a server.
+            // For this demo, we'll just show the success message.
+            contactForm.classList.add('hidden');
+            submissionMessage.classList.remove('hidden');
+            setTimeout(() => {
+                submissionMessage.classList.remove('opacity-0');
+            }, 10);
+        });
+
+        // --- Custom CSS ---
         const styleSheet = document.createElement("style");
         styleSheet.type = "text/css";
         styleSheet.innerText = `
-            .skill-category-card {
-                background-color: rgba(31, 41, 55, 0.5); /* bg-gray-800/50 */
-                padding: 1.5rem;
-                border-radius: 0.5rem;
-                border: 1px solid #374151; /* border-gray-700 */
-            }
-            .skill-category-title {
-                font-size: 1.25rem;
-                font-weight: 600;
-                color: #a78bfa; /* text-violet-400 */
-                margin-bottom: 1rem;
-                text-align: center;
-            }
-            .skill-items-wrapper {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.75rem;
-            }
-            .skill-item {
-                background-color: rgba(139, 92, 246, 0.2);
-                color: #c4b5fd;
-                padding: 8px 16px;
-                border-radius: 9999px;
-                font-weight: 500;
-                font-size: 0.875rem;
-                transition: all 0.2s ease-in-out;
-            }
-            .skill-item:hover {
-                background-color: rgba(139, 92, 246, 0.4);
-                transform: translateY(-2px);
-            }
-            .contact-link {
-                display: inline-flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-                color: #d1d5db;
-                transition: color 0.3s, transform 0.3s;
-            }
-            .contact-link:hover {
-                color: #a78bfa;
-                transform: translateY(-4px);
-            }
-            .modal-link {
-                display: inline-flex;
-                align-items: center;
-                padding: 10px 20px;
-                background-color: #4f46e5;
-                color: white;
-                border-radius: 8px;
-                font-weight: 600;
-                transition: background-color 0.3s;
-            }
-            .modal-link:hover {
-                background-color: #4338ca;
-            }
-            .form-label {
-                display: block;
-                margin-bottom: 0.5rem;
-                font-size: 0.875rem;
-                font-weight: 500;
-                color: #d1d5db; /* text-gray-300 */
-            }
-            .form-input {
-                display: block;
-                width: 100%;
-                background-color: #1f2937; /* bg-gray-800 */
-                border: 1px solid #4b5563; /* border-gray-600 */
-                border-radius: 0.5rem;
-                padding: 0.75rem 1rem;
-                color: #f3f4f6; /* text-gray-100 */
-                transition: border-color 0.3s, box-shadow 0.3s;
-            }
-            .form-input:focus {
-                outline: none;
-                border-color: #8b5cf6; /* focus:border-violet-500 */
-                box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5);
-            }
+            .skill-category-card{background-color:rgba(31,41,55,.5);padding:1.5rem;border-radius:.5rem;border:1px solid #374151}
+            .skill-category-title{font-size:1.25rem;font-weight:600;color:#a78bfa;margin-bottom:1rem;text-align:center}
+            .skill-items-wrapper{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem}
+            .skill-item{background-color:rgba(139,92,246,.2);color:#c4b5fd;padding:8px 16px;border-radius:9999px;font-weight:500;font-size:.875rem;transition:all .2s ease-in-out}
+            .skill-item:hover{background-color:rgba(139,92,246,.4);transform:translateY(-2px)}
+            .contact-link{display:inline-flex;flex-direction:column;align-items:center;gap:8px;color:#d1d5db;transition:color .3s,transform .3s}
+            .contact-link:hover{color:#a78bfa;transform:translateY(-4px)}
+            .modal-link{display:inline-flex;align-items:center;padding:10px 20px;background-color:#4f46e5;color:#fff;border-radius:8px;font-weight:600;transition:background-color .3s}
+            .modal-link:hover{background-color:#4338ca}
+            .form-label{display:block;margin-bottom:.5rem;font-size:.875rem;font-weight:500;color:#d1d5db}
+            .form-input{display:block;width:100%;background-color:#1f2937;border:1px solid #4b5563;border-radius:.5rem;padding:.75rem 1rem;color:#f3f4f6;transition:border-color .3s,box-shadow .3s}
+            .form-input:focus{outline:0;border-color:#8b5cf6;box-shadow:0 0 0 2px rgba(139,92,246,.5)}
         `;
         document.head.appendChild(styleSheet);
 
@@ -827,21 +707,15 @@
         const imgElement = document.getElementById("profileImage");
 
         setInterval(() => {
-            // Fade out
             imgElement.style.opacity = 0;
-
             setTimeout(() => {
-                // Change image
                 index = (index + 1) % images.length;
                 imgElement.src = images[index];
-
-                // Fade in
                 imgElement.style.opacity = 1;
-            }, 700); // matches transition duration
-        }, 5000); // change every 5 seconds
+            }, 700);
+        }, 5000);
     </script>
 </body>
-
 
 </html>
 
@@ -1218,5 +1092,4 @@
                         imgElement.style.opacity = 1;
                     }, 700); // matches transition duration
                 }, 5000); // change every 5 seconds
-
             </script> -->
