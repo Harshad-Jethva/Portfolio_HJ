@@ -11,7 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="SHORTCUT ICON" href="logo.png" type="image/x-icon">
     <script src="https://unpkg.com/lucide@latest"></script>
-
+    <audio id="bg-music" autoplay loop>
+        <source src="background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Some browsers block autoplay with sound, so we force play on load
+        window.addEventListener("load", function () {
+            const music = document.getElementById("bg-music");
+            music.volume = 0.5; // set volume (0.0 - 1.0)
+            music.play().catch(() => {
+                console.log("Autoplay blocked. Waiting for user interaction...");
+                document.body.addEventListener("click", () => {
+                    music.play();
+                }, { once: true });
+            });
+        });
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -64,6 +80,22 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: #718096;
+        }
+
+        /* Gallery Styles */
+        .gallery-main-image {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-thumbnail {
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .gallery-thumbnail.active {
+            border-color: #a78bfa;
+            /* violet-400 */
         }
     </style>
 </head>
@@ -553,29 +585,47 @@
             {
                 name: "Dev Race Relay",
                 year: 2025,
-                where: "C B Patel College",
+                where: "C B Patel College of Computer Application",
                 images: [
                     "cbpwin3.jpg", "cbpcerti.jpg", "cbpwintrophy.jpg", "cbpwin1.jpg", "cbpwin2.jpg", "cbpwin4.jpg"
                 ],
-                message: "Achieved First Rank in the Dev Race Relay 2025, a highly competitive programming event. Competing as a dynamic two-person team, we successfully navigated a challenging relay format, which demanded exceptional collaboration, rapid code comprehension, and adaptability under strict time constraints to develop a cohesive program in C and C++."
+                message: "Achieved First Rank in the Dev Race Relay 2025, a highly competitive programming event hosted by the C B Patel College of Computer Application. Competing as a dynamic two-person team alongside my partner, Prince Goti, we successfully navigated a challenging and unique competition format. <br/><br/>The \"Dev Race Relay\" was designed to test more than just individual coding skills. It was a true relay where each team member had to sequentially take over, understand, and build upon the code written by the previous teammate. This format demanded exceptional collaboration, rapid code comprehension, and adaptability under strict time constraints. Our task was to collaboratively develop a cohesive and functional program in C and C++, seamlessly handing off the evolving codebase at critical junctures. <br/><br/>Our victory in this event is a testament to our ability to: <br/><br/>Work Synergistically: Effectively communicating and strategizing to ensure smooth transitions and a unified coding approach. <br/><br/>Adapt Quickly: Instantly interpreting a teammate's logic and continuing the development flow without delay. <br/><br/>Solve Problems Under Pressure: Debugging and implementing complex logic in a fast-paced, competitive environment. <br/><br/>Demonstrate Technical Proficiency: Showcasing a strong command of C and C++ fundamentals and advanced concepts. <br/><br/>Clinching the top position in this competition was a proud moment, highlighting our combined strength in both collaborative software development and technical expertise."
             },
             {
                 name: "Design A Jung",
                 year: 2025,
-                where: "Uttar Gujarat College",
+                where: "Shree Uttar Gujarat College of Computer Application",
                 images: [
                     "ugcwin2.jpg", "ugccerti.jpg", "ugctrophy1.jpg", "ugctrophy2.jpg", "ugcwin1.jpg"
                 ],
-                message: "Achieved First Rank in a web designing competition by developing the front-end for a unique e-commerce website dedicated to selling cultural goods. Our winning solution was crafted using HTML, CSS, JavaScript, and leveraging both Tailwind CSS and Bootstrap."
+                message: "Achieved First Rank in a web designing competition at the Shree Uttar Gujarat College of Computer Application, competing alongside my senior sister, Nidhi Jikadara. We won by successfully developing the front-end for a unique e-commerce website dedicated to selling cultural goods and artifacts. <br><br>This project required the cohesive integration of multiple modern front-end technologies to create a visually appealing, responsive, and intuitive user interface. Our winning solution was meticulously crafted using a robust combination of HTML, CSS, and JavaScript, while leveraging both Tailwind CSS and Bootstrap to demonstrate versatility in UI framework utilization. <br><br>Our victory in the final moments of the competition underscored our ability to perform under pressure and deliver exceptional results on a tight deadline. This achievement highlights a range of skills crucial for professional web development: <br><br>Frontend Development & Design: Expertly translating a concept into a functional and aesthetically pleasing website. <br><br>Technical Proficiency: Demonstrated mastery of essential web technologies (HTML, CSS, JavaScript) and proficiency in leading frameworks (Tailwind, Bootstrap). <br><br>UI/UX Principles: Designing a user-friendly and visually engaging interface optimized for an e-commerce platform. <br><br>Collaborative Development: Working effectively as a team to seamlessly integrate our contributions and deliver a high-quality product. <br><br>This win is a testament to our technical acumen, creative design skills, and the synergy of our teamwork."
             },
             {
                 name: "Excellent Student in Sem 3",
                 year: 2024,
-                where: "Sutex College",
+                where: "Sutex College of Computer Application and Science",
                 images: [
                     "sem3certi.jpg", "sem3trophy.jpg"
                 ],
-                message: "Secured the 8th rank among all students in the S.Y.B.C.A. Semester 3 External Examination, demonstrating a strong command of the core curriculum and reflecting a high level of academic performance."
+                message: "Secured the 8th rank among all students in the S.Y.B.C.A. Semester 3 External Examination, demonstrating a strong command of the core curriculum and reflecting a high level of academic performance. <br><br>External examinations are a rigorous test of a student's comprehensive knowledge, as they are independently evaluated and cover a wide range of subjects studied throughout the semester. This achievement showcases my dedication and disciplined approach to my studies. <br><br>The top rank in this competitive examination is a direct result of my: <br><br>Strong Subject Knowledge: A deep and thorough understanding of the B.C.A. curriculum. <br><br>Academic Excellence: Consistent performance that places me in the top tier of my peer group. <br><br>Analytical & Problem-Solving Skills: The ability to effectively apply theoretical knowledge to complex problems. <br><br>Resilience & Hard Work: The commitment required to excel in a demanding academic environment. <br><br>This achievement stands as a significant milestone in my academic journey, underscoring my proficiency and commitment to excellence in computer applications."
+            },
+            {
+                name: "Excellent Student in Sem 4",
+                year: 2025,
+                where: "Sutex College of Computer Application and Science",
+                images: [
+                    "sem4trophy.jpg", "sem4temp.jpg"
+                ],
+                message: "Secured the 4th rank out of all students in the S.Y.B.C.A. (Second Year Bachelor of Computer Applications) Semester 4 External Examination at Sutex College of Computer Application and Science. This accomplishment places me in the top tier of the graduating class, reflecting a sustained commitment to academic excellence throughout my second year of study. <br><br>The Semester 4 external examination serves as a comprehensive assessment of advanced topics in the computer applications curriculum. Earning a position in the top five is a clear indicator of my profound understanding of complex subjects and my ability to recall and apply knowledge under pressure. <br><br>This achievement demonstrates: <br><br>Exceptional Academic Performance: Consistent high performance across all subjects in the semester. <br><br>Comprehensive Subject Mastery: A thorough grasp of advanced concepts in the B.C.A. program. <br><br>Disciplined Study Habits: The hard work and dedication required to excel in a highly competitive academic environment. <br><br>Analytical & Critical Thinking: The ability to analyze problems and formulate effective, correct solutions on a large-scale examination. <br><br>This result is a significant highlight of my academic journey and a strong foundation for my future in the field of computer applications."
+            },
+            {
+                name: "Excellent Student in intercollege competition",
+                year: 2025,
+                where: "Sutex College of Computer Application and Science",
+                images: [
+                    "winintclgcompaward.jpg"
+                ],
+                message: "Secured the 4th rank out of all students in the S.Y.B.C.A. (Second Year Bachelor of Computer Applications) Semester 4 External Examination at Sutex College of Computer Application and Science. This accomplishment places me in the top tier of the graduating class, reflecting a sustained commitment to academic excellence throughout my second year of study. <br><br>The Semester 4 external examination serves as a comprehensive assessment of advanced topics in the computer applications curriculum. Earning a position in the top five is a clear indicator of my profound understanding of complex subjects and my ability to recall and apply knowledge under pressure. <br><br>This achievement demonstrates: <br><br>Exceptional Academic Performance: Consistent high performance across all subjects in the semester. <br><br>Comprehensive Subject Mastery: A thorough grasp of advanced concepts in the B.C.A. program. <br><br>Disciplined Study Habits: The hard work and dedication required to excel in a highly competitive academic environment. <br><br>Analytical & Critical Thinking: The ability to analyze problems and formulate effective, correct solutions on a large-scale examination. <br><br>This result is a significant highlight of my academic journey and a strong foundation for my future in the field of computer applications."
             }
         ];
 
@@ -606,15 +656,22 @@
                     </div>`;
             } else { // Achievement
                 contentHTML = `
-                    <div class="p-6 sm:p-8">
-                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">${data.name}</h3>
-                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-400 mb-4">
-                            <span class="flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2"></i>${data.year}</span>
-                            <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>${data.where}</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 sm:p-8">
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">${data.name}</h3>
+                            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-400 mb-4">
+                                <span class="flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-2"></i>${data.year}</span>
+                                <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>${data.where}</span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed">${data.message}</p>
                         </div>
-                        <p class="text-gray-300 leading-relaxed mb-6">${data.message}</p>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            ${data.images.map(img => `<img src="${img}" class="w-full h-auto rounded-lg object-cover" alt="Achievement Photo">`).join('')}
+                        <div>
+                            <div class="mb-4">
+                                <img id="gallery-main" src="${data.images[0]}" class="w-full h-auto rounded-lg object-cover gallery-main-image" alt="Main Achievement Photo">
+                            </div>
+                            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
+                                ${data.images.map((img, index) => `<img src="${img}" class="w-full h-20 rounded-md object-cover gallery-thumbnail ${index === 0 ? 'active' : ''}" alt="Thumbnail ${index + 1}" onclick="updateGalleryImage(this, '${img}')">`).join('')}
+                            </div>
                         </div>
                     </div>`;
             }
@@ -629,6 +686,21 @@
             document.getElementById('close-modal').addEventListener('click', closeModal);
             document.body.style.overflow = 'hidden';
         }
+        function updateGalleryImage(thumbElement, newImageSrc) {
+            const mainImage = document.getElementById('gallery-main');
+            const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+
+            mainImage.style.opacity = 0;
+
+            setTimeout(() => {
+                mainImage.src = newImageSrc;
+                mainImage.style.opacity = 1;
+            }, 300);
+
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbElement.classList.add('active');
+        }
+
 
         function closeModal() {
             modalContent.classList.add('scale-95', 'opacity-0');
